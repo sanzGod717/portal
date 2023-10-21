@@ -19,9 +19,9 @@ class Kaizen
         if (Auth::check()){
           
         }else {
-            return redirect('register');
+            return redirect('/login');
         }
- 
         return $next($request);
+ 
     }
 }

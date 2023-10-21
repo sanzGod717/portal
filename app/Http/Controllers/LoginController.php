@@ -22,7 +22,6 @@ class LoginController extends Controller
      return view('login');
       }
   public function logs (Request $request){
-  
   $email = $request->input('email');
   $password = $request->input('password');
     $credentials = $request->validate([
@@ -48,9 +47,7 @@ if (Auth::attempt($credentials)) {
             'name' => ['required','max:25'],
             'email' => ['required', 'email'],
            'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
-           'password_confirmation' => 'min:6'
-
-        ]);
+           'password_confirmation' => 'min:6']);
     $this->nome = $request->input('name');
     $this->email = $request->input('email');
     $senha = $request->input('password');
