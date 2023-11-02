@@ -13,6 +13,7 @@
   <div class="header-right">
     <a class="active" href="{{route('home.get')}}">Home</a>
     <a href="{{route('login.get')}}">Logar</a>
+    <a href="{{route('fileUp.get')}}">File</a>
   </div>
 </div>
 </body>

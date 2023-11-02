@@ -26,28 +26,29 @@ class LoginController extends Controller
   $password = $request->input('password');
     $credentials = $request->validate([
             'email' => 'required|email',
-            'password' => 'required|min:6',
+            'password' => 'required|min:1',
         ]);
 if (Auth::attempt($credentials)) {
  echo "usuario autenticado";
          $user = Auth::check();
          $id = Auth::id();
-        dump(Auth::check());
+        dd($user);
          
-           // return redirect()->intended('dashboard');
+           // return redirect()->intended('/');
         }else{
           echo "usuario não autenticado";
         }
  
     }
-    public function register(Request $request){ return view('register');
+    public function register(Request $request){ 
+      return view('register');
     }
     public function filter(Request $request){
     $credentials = $request->validate([
             'name' => ['required','max:25'],
             'email' => ['required', 'email'],
-           'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
-           'password_confirmation' => 'min:6']);
+           'password' => 'min:1|required_with:password_confirmation|same:password_confirmation',
+           'password_confirmation' => 'min:1']);
     $this->nome = $request->input('name');
     $this->email = $request->input('email');
     $senha = $request->input('password');

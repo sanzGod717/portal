@@ -16,12 +16,16 @@ class Kaizen
      */
     public function handle(Request $request, Closure $next): Response
     { 
-        if (Auth::check()){
-          
-        }else {
-            return redirect('/login');
+        if (Auth::check()) {
+            $userId = Auth::id();
+            $user = User::find($userId);
+
+            if ($user) {
+                return $next($request);
+            }
         }
-        return $next($request);
+
+        return redirect('/login');
  
     }
 }

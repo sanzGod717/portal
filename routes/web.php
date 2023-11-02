@@ -4,16 +4,23 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FileUploadController;
 
-Route::get('/login', [LoginController::class,'login'])->name('login.get');
-Route::get('/register', [LoginController::class,'register'])->name('register.get');
+route::controller(LoginController::class)
+->group(function(){
+Route::get('/login','login')->name('login.get');
+Route::get('/register','register')
+->name('register.get');
 
-route::middleware('kaizen')->group(function (){
-  Route::post('/logs', [LoginController::class,'logs'])->name('logs.post');
- Route::post('/filter', [LoginController::class,'filter'])->name('filter.post');
+Route::post('/logs','logs'])->name('logs.post');
+Route::post('/filter','filter'])->name('filter.post');
+  });
 
+
+  
+
+route::middleware(['kaizen'])->group(function (){
  Route::get('/fileUp',[FileUploadController::class,'fileUp'])->name('fileUp.get');
  Route::post('/load',[FileUploadController::class,'load'])->name('load.post');
-});
+ });
  Route::get('/',[HomeController::class,'index'])->name('home.get');
 
 

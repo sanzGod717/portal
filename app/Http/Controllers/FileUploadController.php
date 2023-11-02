@@ -9,6 +9,8 @@ class FileUploadController extends Controller
 {
     public function fileUp()
     {
+  // $user = Auth::check();
+//   dd($user);
       return view('file');
     }
     public function load(Request $request)
