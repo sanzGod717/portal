@@ -1,30 +1,31 @@
 <?php
+
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\FileUploadController;
-use Illuminate\Support\Facades\Auth;
 
-route::controller(LoginController::class)
-->group(function(){
-Route::get('/login','login')->name('login.get');
-Route::get('/register','register')
-->name('register.get');
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
 
-Route::post('/logs','logs'])->name('logs.post');
-Route::post('/filter','filter'])->name('filter.post');
-  });
+Route::get('/', function () {
+    return view('welcome');
+});
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
- Route::get('/',[HomeController::class,'index'])->name('home.get');
-  
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-route::middleware('auth')->group(function (){
- Route::controller(FileUploadController::class)->group(function(){
- route::get('/fileUp',[,'fileUp'])->name('fileUp.get');
- Route::post('/load',[FileUploadController::class,'load'])->name('load.post');
- }});
-
-
-
-
+require __DIR__.'/auth.php';

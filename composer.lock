@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "005a5b8fb20e5e1595fb224731627c7a",
+    "content-hash": "1f5772742acf4e9319d42d7bbc3c42a9",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -1121,16 +1121,16 @@
         },
         {
             "name": "laravel/breeze",
-            "version": "v1.24.0",
+            "version": "v1.26.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/breeze.git",
-                "reference": "d3979dc75f78c1c6b0b035f52e3f4ea2dacab615"
+                "reference": "8757692a7be1a6174a0f1a5d3c280a8912d45dd0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/breeze/zipball/d3979dc75f78c1c6b0b035f52e3f4ea2dacab615",
-                "reference": "d3979dc75f78c1c6b0b035f52e3f4ea2dacab615",
+                "url": "https://api.github.com/repos/laravel/breeze/zipball/8757692a7be1a6174a0f1a5d3c280a8912d45dd0",
+                "reference": "8757692a7be1a6174a0f1a5d3c280a8912d45dd0",
                 "shasum": ""
             },
             "require": {
@@ -1179,7 +1179,7 @@
                 "issues": "https://github.com/laravel/breeze/issues",
                 "source": "https://github.com/laravel/breeze"
             },
-            "time": "2023-09-20T18:37:37+00:00"
+            "time": "2023-11-01T14:18:45+00:00"
         },
         {
             "name": "laravel/framework",
@@ -7773,16 +7773,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "10.1.6",
+            "version": "10.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "56f33548fe522c8d82da7ff3824b42829d324364"
+                "reference": "84838eed9ded511f61dc3e8b5944a52d9017b297"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/56f33548fe522c8d82da7ff3824b42829d324364",
-                "reference": "56f33548fe522c8d82da7ff3824b42829d324364",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/84838eed9ded511f61dc3e8b5944a52d9017b297",
+                "reference": "84838eed9ded511f61dc3e8b5944a52d9017b297",
                 "shasum": ""
             },
             "require": {
@@ -7839,7 +7839,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
                 "security": "https://github.com/sebastianbergmann/php-code-coverage/security/policy",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/10.1.6"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/10.1.8"
             },
             "funding": [
                 {
@@ -7847,7 +7847,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-09-19T04:59:03+00:00"
+            "time": "2023-11-15T13:31:15+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -9606,5 +9606,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.2.0"
 }
