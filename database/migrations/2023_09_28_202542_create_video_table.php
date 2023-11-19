@@ -12,9 +12,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('describe');
-            $table->string('video_file');
-            $table->string('token');
-           $table->unsignedBigInteger('user_id');
+            $table->text('image_path');
+           $table->unsignedBigInteger('user_id')->nullable();
            $table->foreign('user_id')->references('id')->on('users');
            $table->timestamps();
         });
