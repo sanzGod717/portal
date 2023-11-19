@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FileUploadController;
+use Illuminate\Support\Facades\Auth;
 
 route::controller(LoginController::class)
 ->group(function(){
@@ -15,13 +16,14 @@ Route::post('/filter','filter'])->name('filter.post');
   });
 
 
+ Route::get('/',[HomeController::class,'index'])->name('home.get');
   
 
-route::middleware(['kaizen'])->group(function (){
- Route::get('/fileUp',[FileUploadController::class,'fileUp'])->name('fileUp.get');
+route::middleware('auth')->group(function (){
+ Route::controller(FileUploadController::class)->group(function(){
+ route::get('/fileUp',[,'fileUp'])->name('fileUp.get');
  Route::post('/load',[FileUploadController::class,'load'])->name('load.post');
- });
- Route::get('/',[HomeController::class,'index'])->name('home.get');
+ }});
 
 
 

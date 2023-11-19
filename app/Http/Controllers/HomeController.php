@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index(){
+    public function index(Request $r){
+    dd($r->session('key'));  
       return view('home');
     }
 }

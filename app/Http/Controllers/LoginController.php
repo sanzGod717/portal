@@ -32,9 +32,7 @@ if (Auth::attempt($credentials)) {
  echo "usuario autenticado";
          $user = Auth::check();
          $id = Auth::id();
-        dd($user);
-         
-           // return redirect()->intended('/');
+       return redirect()->intended("/fileUp");
         }else{
           echo "usuario não autenticado";
         }
