@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FileUploadController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,5 +28,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+ Route::controller(FileUploadController::class)->group(function(){
+ route::get('/fileUp','fileUp')->name('fileUp.get')->middleware('auth');
+ Route::post('/load','load')->name('load.post');
+});
+
 
 require __DIR__.'/auth.php';

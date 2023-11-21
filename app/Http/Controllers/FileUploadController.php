@@ -4,23 +4,24 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\video;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\File;
 
 class FileUploadController extends Controller
 {
     public function fileUp()
     {
-  // $user = Auth::check();
-//   dd($user);
       return view('file');
     }
     public function load(Request $request)
     {
 $request->validate([
-            'title' => 'required|unique:videos|max:255',
+            'title' => 'required|max:255',
             'describe' => 'required|max:700',
-            'image_path' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image_path' => 'mimes:jpeg,png,jpg,gif,svg,mp4,mov,avi,mkv'
         ]);
-        
+            //'image_path' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        $user = Auth::id();
         $file = $request->file('image_path');
         
             if($request->hasFile('image_path'))
@@ -30,26 +31,26 @@ $request->validate([
           $imageName = basename($file->getClientOriginalName(), '.' . $extension);
           $fileName = time() . '.' . $request->image_path->extension();
             }
+            
+    if($extension == "jpeg" ||          $extension == "png" ||
+        $extension == "jpg" ||
+        $extension == "gif" ||
+        $extension == "svg" ) {
+        $save = $request->image_path->storeAs('/IMG',$fileName);
+        }else {
+          $save = $request->image_path->storeAs('/VIDEO',$fileName);
+        }
+         $path = storage_path($save);
 
-$path = $request->image_path->storeAs('/IMG',$fileName);
         
         $video = video::Create([
-          "title" => $request->title,
-          "describe" => $request->describe,
-          "image_path" => $fileName,
+         "title" => $request->title,
+         "describe" => $request->describe,
+         "image_path" => $path,
+         "user_id" => $user
         ]);
-         // "user_id" => 1
-
-   dump($fileName);
-      //$request->image->storeAs('public/images', $fileName);  
+        
+   dd($extension);
       
-        /* 
-            Write Code Here for
-            Store $imageName name in DATABASE from HERE 
-        */
-     /*   
-        return back()
-                    ->with('success', 'You have successfully upload image.')
-                    ->with('image', $imageName);*/
     }
 }
