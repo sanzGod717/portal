@@ -42,15 +42,16 @@ $request->validate([
         }
          $path = storage_path($save);
 
-        
+       /* 
         $video = video::Create([
          "title" => $request->title,
          "describe" => $request->describe,
          "image_path" => $path,
          "user_id" => $user
         ]);
-        
-   dd($extension);
+        */
+       
+   dd($save);
       
     }
 }
